@@ -1,0 +1,23 @@
+.main__menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__button-text {
+    text-decoration: none;
+    color: white;
+    font-size: 3rem;
+}
+
+.main__button {
+    margin: 2rem;
+    width: 15rem;
+    height: 5rem;
+    background-color: rgba(10, 10, 10, .6);
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

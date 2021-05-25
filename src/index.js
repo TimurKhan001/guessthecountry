@@ -2,12 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Header from "./Header";
 import reportWebVitals from './reportWebVitals';
+import {
+  BrowserRouter as Router
+}
+from 'react-router-dom';
+import Main from "./Main";
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Router>
+    <Header />
+    <Main />
     <App />
-  </React.StrictMode>,
+  </Router>,
   document.getElementById('root')
 );
 
