@@ -1,6 +1,8 @@
 .header__top {
+    text-align: center;
     width: 100%;
     height: 10rem;
+    padding: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,5 +11,8 @@
 
 .header__title {
     color: white;
+    font-size: 2.4rem;
+    font-weight: normal;
+    letter-spacing: .8rem;
     text-transform: uppercase;
 }

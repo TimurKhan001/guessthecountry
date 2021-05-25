@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// import { Provider } from 'react-redux';
+// import { createStore } from 'redux';
+// import rootReducer from './reducers';
 import './index.css';
-import App from './App';
 import Header from "./Header";
 import reportWebVitals from './reportWebVitals';
 import {
@@ -9,13 +11,15 @@ import {
 }
 from 'react-router-dom';
 import Main from "./Main";
+import SwitchGame from "./Switch";
 
+// const store = createStore(rootReducer);
 
 ReactDOM.render(
+
   <Router>
     <Header />
-    <Main />
-    <App />
+    <SwitchGame />
   </Router>,
   document.getElementById('root')
 );

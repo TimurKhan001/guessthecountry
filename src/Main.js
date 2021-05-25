@@ -13,7 +13,15 @@ const Main = () => (
             <h2><Link className="main__button-text" to="/options">Options</Link></h2>
         </div>
         
+        <div className="main__info">
+            <p className="main__info-text">
+                Can you identify a country by it’s flag?
+                Click “play” to try!<br/>
+                You can change the difficulty in the options menu. 
+            </p>
+        </div>
     </section>
+
 );
 
 

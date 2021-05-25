@@ -1,4 +1,5 @@
 .main__menu {
+    margin-top: 10rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,17 +8,34 @@
 
 .main__button-text {
     text-decoration: none;
-    color: white;
-    font-size: 3rem;
+    color: #f2f2f2;
+    font-size: 3.4rem;
+    font-weight: normal;
+    letter-spacing: .8rem;
 }
 
 .main__button {
     margin: 2rem;
-    width: 15rem;
-    height: 5rem;
+    width: 30rem;
+    height: 10rem;
     background-color: rgba(10, 10, 10, .6);
-    border-radius: 2rem;
+    border-radius: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.main__info {
+    margin-top: 5rem;
+    padding: 2rem 4rem;
+    background-color: rgba(10, 10, 10, .6);
+
+}
+
+.main__info-text {
+    color: #f2f2f2;
+    font-weight: normal;
+    font-size: 1.6rem;
+    letter-spacing: .8rem;
+    line-height: 3rem;
 }
