@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { Provider } from 'react-redux';
-// import { createStore } from 'redux';
-// import rootReducer from './reducers';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer from './reducers';
 import './index.css';
 import Header from "./Header";
 import reportWebVitals from './reportWebVitals';
@@ -13,14 +13,15 @@ from 'react-router-dom';
 import Main from "./Main";
 import SwitchGame from "./Switch";
 
-// const store = createStore(rootReducer);
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
-
+  <Provider store={store}>
   <Router>
     <Header />
     <SwitchGame />
-  </Router>,
+  </Router>
+  </Provider>,
   document.getElementById('root')
 );
 

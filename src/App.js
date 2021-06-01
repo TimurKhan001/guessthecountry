@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { connect } from "react-redux";
 
 class App extends Component {
     constructor(props) {
@@ -8,16 +9,14 @@ class App extends Component {
             chosen: [],
             answer: {},
             correct: 0,
-            incorrect: 0,
-            maxpoints: 10,
-            variants: 4
+            incorrect: 0
         };
 
         this.handleClick = this.handleClick.bind(this);
     }
 
     fetch = () => {
-        let variants = this.state.variants;
+        let variants = this.props.variants;
         const url = "https://restcountries.eu/rest/v2/all";
         window.fetch(url)
             .then(data => data.json())
@@ -47,41 +46,48 @@ class App extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (this.state.correct === this.state.maxpoints) {
+        if (this.state.correct === this.props.maxpoints) {
             alert("You won the game");
             this.setState({ correct: 0, incorrect: 0 });
         }
-        else if (this.state.incorrect === this.state.maxpoints) {
+        else if (this.state.incorrect === this.props.maxpoints) {
             alert("Sorry you lost");
             this.setState({ correct: 0, incorrect: 0 });
         }
     }
 
-    updateMaxPoints = (e) => {
-        this.setState({
-            maxpoints: +e.target.value
-        });
-    }
 
     render() {
         let countries = this.state.chosen;
         let showCountries = countries.map((item, index) => (
-            <div style={{padding: "20px"}} key={index}>{item.name}</div>
+            <div className="game__coutnry-name" style={{padding: "20px"}} key={index}><h2>{item.name}</h2></div>
         ));
 
         return (
             <div className="App">
-                <h2 onClick={this.handleClick} style={{cursor: "pointer"}}>{showCountries}</h2>
-                <img style={{width: "300px"}} src={this.state.answer.flag} alt="country flag"/>
-                <h3>Correct {this.state.correct}</h3>
-                <h3>Wrong {this.state.incorrect}</h3>
+            
+                <div className="game__image">
+                <img style={{height: "25vh"}} src={this.state.answer.flag} alt="country flag"/>
+                </div>
                 
-                <label for="maxpoints">Choose a maximum score </label>
-                <input id="maxpoints" type="number" value={this.state.maxpoints} onChange={this.updateMaxPoints}/>
+                <div className="game__countries">
+                <div onClick={this.handleClick} style={{cursor: "pointer"}}>{showCountries}</div>
+                </div>
+                
+                <h3 style={{display: "inline-block", margin: "1rem"}}>Correct {this.state.correct}</h3>
+                <h3 style={{display: "inline-block", margin: "1rem"}}>Wrong {this.state.incorrect}</h3>
+                <h3 style={{display: "inline-block", margin: "1rem"}}>Max Score {this.props.maxpoints}</h3>
                 
             </div>
         );
     }
 }
 
-export default App;
+function mapStateToProps(reduxState) {
+    return {
+        maxpoints: reduxState.maxpoints,
+        variants: reduxState.variants
+    };
+}
+
+export default connect(mapStateToProps)(App);
