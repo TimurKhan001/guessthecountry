@@ -1,5 +1,6 @@
 .game__image {
   margin-top: 5rem;
+  margin-bottom: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,6 +9,7 @@
 .game__countries {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -17,7 +19,8 @@
   letter-spacing: .8rem;
 }
 
-.game__coutnry-name {
+.game__country-name {
+  width: 40%;
   margin: 2rem;
   padding: 3rem;
   background-color: rgba(10, 10, 10, .6);

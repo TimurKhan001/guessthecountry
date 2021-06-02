@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from "react-redux";
+import Modal from 'react-awesome-modal';
 
 class App extends Component {
     constructor(props) {
@@ -9,7 +10,8 @@ class App extends Component {
             chosen: [],
             answer: {},
             correct: 0,
-            incorrect: 0
+            incorrect: 0,
+            visible: false
         };
 
         this.handleClick = this.handleClick.bind(this);
@@ -60,7 +62,7 @@ class App extends Component {
     render() {
         let countries = this.state.chosen;
         let showCountries = countries.map((item, index) => (
-            <div className="game__coutnry-name" style={{padding: "20px"}} key={index}><h2>{item.name}</h2></div>
+            <div className="game__country-name" onClick={this.handleClick} style={{padding: "20px", cursor: "pointer"}} key={index}><h2>{item.name}</h2></div>
         ));
 
         return (
@@ -70,13 +72,13 @@ class App extends Component {
                 <img style={{height: "25vh"}} src={this.state.answer.flag} alt="country flag"/>
                 </div>
                 
-                <div className="game__countries">
-                <div onClick={this.handleClick} style={{cursor: "pointer"}}>{showCountries}</div>
-                </div>
                 
-                <h3 style={{display: "inline-block", margin: "1rem"}}>Correct {this.state.correct}</h3>
-                <h3 style={{display: "inline-block", margin: "1rem"}}>Wrong {this.state.incorrect}</h3>
-                <h3 style={{display: "inline-block", margin: "1rem"}}>Max Score {this.props.maxpoints}</h3>
+                <div className="game__countries">{showCountries}</div>
+                
+                
+                <h3 style={{ margin: "1rem", textAlign: "center"}}>Correct {this.state.correct}</h3>
+                <h3 style={{ margin: "1rem", textAlign: "center"}}>Wrong {this.state.incorrect}</h3>
+                <h3 style={{ margin: "1rem", textAlign: "center"}}>Max Score {this.props.maxpoints}</h3>
                 
             </div>
         );
