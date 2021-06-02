@@ -19,6 +19,12 @@ body {
   background-size: cover;
 }
 
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 @media screen and (min-width: 1024px) {
   body {
     background: url(./mapfordesktop.jpg) no-repeat center center fixed;

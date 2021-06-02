@@ -62,7 +62,9 @@ class App extends Component {
     render() {
         let countries = this.state.chosen;
         let showCountries = countries.map((item, index) => (
-            <div className="game__country-name" onClick={this.handleClick} style={{padding: "20px", cursor: "pointer"}} key={index}><h2>{item.name}</h2></div>
+            <div className="game__country-name" onClick={this.handleClick} style={{padding: "20px", cursor: "pointer"}} key={index}>
+                <h2>{item.name}</h2>
+            </div>
         ));
 
         return (

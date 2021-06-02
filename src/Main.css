@@ -1,9 +1,10 @@
 .main__menu {
-    margin-top: 10rem;
+    margin-top: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-grow: 1;
 }
 
 .main__button-text {
@@ -29,6 +30,7 @@
     margin-top: 5rem;
     padding: 2rem 4rem;
     background-color: rgba(10, 10, 10, .6);
+    flex-grow: 1;
 
 }
 
